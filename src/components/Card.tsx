@@ -1,5 +1,4 @@
 import React from 'react';
-import { fetchArticles } from '../api/articles';
 
 type CardProps = {
     title: string;
@@ -31,14 +30,5 @@ const Card: React.FC<CardProps> = ({ title, description, imageUrl, url }) => (
 
 );
 
-return (
-    fetchArticles().then(articles => (
-        <div>
-            {articles.map(article => (
-                <Card key={article.id} {...article} />
-            ))}
-        </div>
-    ))
-);
 
 export default Card;
