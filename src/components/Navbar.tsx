@@ -17,7 +17,8 @@ const Navbar = () => {
                 <div className='flex items-center'>
                     <span className='text-3xl font-bold text-white'>LOGO</span>
                 </div>
-
+                <div className='hidden lg:flex items-center w-93'>
+                </div>
                 <div className='hidden lg:flex items-center'>
                     <ul className='flex gap-8 text-[18px]'>
                         {links}
@@ -34,10 +35,12 @@ const Navbar = () => {
 
             {isMenuOpen && (
                 <div className='lg:hidden bg-[#00001a] w-full px-6 py-4'>
+                    
                     <ul className='flex flex-col gap-4'>
                         {links}
                     </ul>
                 </div>
+                
             )}
         </nav>
     );
