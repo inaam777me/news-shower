@@ -45,6 +45,7 @@ export function FavoriteListAll() {
                             imageUrl={article.image_url}
                             url={article.url}
                             id={article.id}
+                            bool={true}
                         />
                     ) : null;
                 })

@@ -25,6 +25,7 @@ const ArticlesList: React.FC = () => {
                     imageUrl={article.image_url}
                     url={article.url}
                     id={article.id}
+                    bool={false}
                 />
             ))}
         </div>

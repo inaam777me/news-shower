@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Heart } from 'lucide-react';
-import { addToFavorites, deleteFavorites} from './Favoritelist';
+import { addToFavorites, deleteFavorites, getFavorites } from './Favoritelist';
 
 type CardProps = {
   title: string;
@@ -8,10 +8,15 @@ type CardProps = {
   imageUrl?: string;
   url?: string;
   id: number;
+  bool: boolean;
 };
 
-const Card: React.FC<CardProps> = ({ title, description, imageUrl, url, id }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
+
+
+const Card: React.FC<CardProps> = ({ title, description, imageUrl, url, id, bool }) => {
+  const [isFavorite, setIsFavorite] = useState(() => {
+    return bool || getFavorites().includes(id);
+  });
 
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 overflow-hidden">
@@ -19,7 +24,6 @@ const Card: React.FC<CardProps> = ({ title, description, imageUrl, url, id }) =>
         <a href={url}>
           <img className="rounded-t-lg w-full object-cover" src={imageUrl} alt={title} />
         </a>
-
         <button
           className="absolute top-2 right-2 p-2 rounded-full bg-white shadow-md hover:bg-gray-100"
           onClick={() => {
